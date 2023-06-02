@@ -2,6 +2,7 @@ package com.example.trackrunning.di
 
 import android.content.Context
 import androidx.room.Room
+import com.example.trackrunning.db.RunDao
 import com.example.trackrunning.db.RunDatabase
 import dagger.Module
 import dagger.Provides
@@ -27,5 +28,7 @@ object AppModule {
     }
     @Provides
     @Singleton
-    fun provideDao(runDatabase: RunDatabase)  = runDatabase.getRunDao()
+    fun provideDao(runDatabase: RunDatabase)  :RunDao {
+        return runDatabase.getRunDao()
+    }
 }

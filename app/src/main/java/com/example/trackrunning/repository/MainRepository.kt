@@ -40,4 +40,7 @@ class MainRepository @Inject constructor(
     fun getRunSortedByDistance(): LiveData<List<Run>>{
         return dao.getRunSortedByDistance()
     }
+    fun getRunSortedByTimeInMillis():LiveData<List<Run>>{
+        return dao.getRunSortedByTimeInMillis()
+    }
 }
