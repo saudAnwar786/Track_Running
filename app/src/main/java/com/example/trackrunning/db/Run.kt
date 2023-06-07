@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Run(
-
     var image : Bitmap? = null,
     var timeStamp:Long = 0L,
     var avgSpeedInKmPerHour : Float = 0f,

@@ -43,4 +43,25 @@ class MainRepository @Inject constructor(
     fun getRunSortedByTimeInMillis():LiveData<List<Run>>{
         return dao.getRunSortedByTimeInMillis()
     }
+
+
+
+    fun getTotalTimeInMillis(): LiveData<Long>{
+        return dao.getTotalTimeInMillis()
+    }
+
+
+    fun getTotalCaloriesBurned(): LiveData<Int>{
+        return dao.getTotalCaloriesBurned()
+    }
+
+
+    fun getTotalDistance(): LiveData<Int>{
+        return dao.getTotalDistance()
+    }
+
+
+    fun getTotalAvgSpeed(): LiveData<Float>{
+        return dao.getTotalAvgSpeed()
+    }
 }

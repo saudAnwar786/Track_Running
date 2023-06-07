@@ -38,6 +38,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Calendar
+import javax.inject.Inject
 import kotlin.math.round
 
 @AndroidEntryPoint
@@ -51,7 +52,9 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking){
     private var pathsPoints = mutableListOf<Polyline>()
     private var currTimeInMillis =0L
     private var menu:Menu? = null
-    private var weight = 80
+
+    @set:Inject
+     var weight = 80f
 
     private val viewModel:MainViewModel by viewModels()
     override fun onCreateView(
@@ -148,10 +151,10 @@ class TrackingFragment : Fragment(R.layout.fragment_tracking){
     }
     private fun updateTracking(isTracking: Boolean) {
         this.isTracking = isTracking
-        if(!isTracking) {
+        if(!isTracking && currTimeInMillis>0L) {
             binding.btnToggleRun.text = "Start"
             binding.btnFinishRun.visibility = View.VISIBLE
-        } else {
+        } else if(isTracking) {
             binding.btnToggleRun.text = "Stop"
             binding.btnFinishRun.visibility = View.GONE
         }
